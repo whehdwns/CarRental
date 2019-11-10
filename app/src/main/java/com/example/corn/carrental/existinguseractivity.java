@@ -8,7 +8,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.example.corn.carrental.databases.FeedReaderDbHelper;
+import com.example.corn.carrental.database.FeedReaderDbHelper;
 
 public class existinguseractivity extends AppCompatActivity {
     EditText editname;
