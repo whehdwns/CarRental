@@ -19,7 +19,11 @@
         <activity android:name=".newuseractivity" />
         <activity android:name=".existinguseractivity" />
         <activity android:name=".SubMenu" />
-        <activity android:name=".newDMV"></activity>
+        <activity android:name=".newDMV" />
+        <activity android:name=".Reservation" />
+        <activity android:name=".searchvehicle" />
+        <activity android:name=".editreservation" />
+        <activity android:name=".Billing"></activity>
     </application>
 
 </manifest>
