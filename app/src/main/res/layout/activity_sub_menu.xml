@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".SubMenu">
+    <TextView
+        android:id="@+id/welcome"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_marginTop="30dp"
+        android:orientation="vertical"
+        android:layout_centerHorizontal="true"
+        android:text="MENU"
+        android:textSize="45dp" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/Reserve"
+        android:layout_below="@id/welcome"
+        android:text="Reserve"
+        android:textSize="20dp"
+        android:gravity="center"
+        android:layout_marginTop="50dp"
+        android:layout_centerHorizontal="true" />
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/Search"
+        android:layout_below="@id/Reserve"
+        android:text="Search Vehicle"
+        android:textSize="20dp"
+        android:gravity="center"
+        android:layout_marginTop="20dp"
+        android:layout_centerHorizontal="true" />
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/editreserve"
+        android:layout_below="@id/Search"
+        android:text="Edit Reserve"
+        android:textSize="20dp"
+        android:gravity="center"
+        android:layout_marginTop="20dp"
+        android:layout_centerHorizontal="true"/>
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/billing"
+        android:layout_below="@id/editreserve"
+        android:text="Billing"
+        android:textSize="20dp"
+        android:layout_centerHorizontal="true"
+        android:gravity="center"
+        android:layout_marginTop="20dp" />
+</RelativeLayout>
