@@ -4,36 +4,35 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".editreservation">
-
+    tools:context=".edit_update">
     <TextView
-        android:id="@+id/edit"
+        android:id="@+id/update"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
         android:layout_marginTop="10dp"
         android:orientation="vertical"
-        android:text="Edit"
+        android:text="Update Reservation"
         android:textSize="40dp" />
 
     <Button
-        android:id="@+id/Update"
+        android:id="@+id/update_pickup"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="UPDATE"
-        android:layout_below="@id/edit"
+        android:text="UPDATE Pick up date"
+        android:layout_below="@id/update"
+        android:layout_centerHorizontal="true"
         android:gravity="center"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="10dp"
         android:layout_marginLeft="150dp"/>
-
     <Button
-        android:id="@+id/Cancel"
+        android:id="@+id/update_return"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="CANCEL"
-        android:layout_below="@id/Update"
+        android:text="UPDATE Return date"
+        android:layout_below="@id/update_pickup"
         android:gravity="center"
-        android:layout_marginTop="50dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
         android:layout_marginLeft="150dp"/>
-
 </RelativeLayout>

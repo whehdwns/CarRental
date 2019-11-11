@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.corn.carrental.database.FeedReaderDbHelper;
@@ -13,6 +14,7 @@ import com.example.corn.carrental.database.FeedReaderDbHelper;
 public class existinguseractivity extends AppCompatActivity {
     EditText editname;
     Button search;
+    //TextView editwelcome;
     FeedReaderDbHelper dbHelper;
     //String name;
     @Override
@@ -21,6 +23,7 @@ public class existinguseractivity extends AppCompatActivity {
         setContentView(R.layout.activity_existinguseractivity);
         editname = (EditText)findViewById(R.id.name);
         search =(Button)findViewById(R.id.search);
+     //   editwelcome = (TextView)findViewById(R.id.welcome);
         dbHelper=new FeedReaderDbHelper(this);
         searchuser();
     }
