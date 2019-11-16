@@ -13,8 +13,9 @@ Should be finish by December
         Update return date
                Database return date
 11/16/2019
-  Added Search Vehicle
+  Added Search Vehicle - Vehicle List
         shows brand, model, type, production year, price, color, mileage for each vehicle
   Added Search Bar
          search vehicle by model, type
+  it should keep the data from vehicle and move the data to reservation activity
     
