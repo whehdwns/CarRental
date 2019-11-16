@@ -1,12 +1,15 @@
 package com.example.corn.carrental.database;
 
-import android.content.ContentUris;
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
+import com.example.corn.carrental.adapter.BrandModel;
 import com.readystatesoftware.sqliteasset.SQLiteAssetHelper;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class FeedReaderDbHelper extends SQLiteAssetHelper {
     private static final String DATABASE_NAME= "CarRental.db";
@@ -57,6 +60,48 @@ public class FeedReaderDbHelper extends SQLiteAssetHelper {
         String query = "UPDATE rental SET'"+returndate+"' WHERE rt_id IN  (SELECT rt_id FROM rental, customer WHERE rt_id = c_rentalid AND c_name = '" + name+"')";
         Cursor cursor = dbw.rawQuery(query, null);
         return cursor;
+    }
+
+    public List<BrandModel> getvehiclelist(){
+        BrandModel model = null;
+        List<BrandModel> modelllist = new ArrayList<>();
+        String query ="SELECT v_brand , v_model, v_type, v_productionyear, v_price, v_color, v_mileage FROM vehicle";
+        Cursor cursor = dbw.rawQuery(query,null);
+        if(cursor.moveToFirst()){
+            do {
+                model = new BrandModel();
+                //model.setId(cursor.getInt(cursor.getColumnIndex("v_id")));
+                model.setBrand(cursor.getString(cursor.getColumnIndex("v_brand")));
+                model.setModel(cursor.getString(cursor.getColumnIndex("v_model")));
+                model.setType(cursor.getString(cursor.getColumnIndex("v_type")));
+                model.setProductionyear(cursor.getString(cursor.getColumnIndex("v_productionyear")));
+                model.setPrice(cursor.getString(cursor.getColumnIndex("v_price")));
+                model.setColor(cursor.getString(cursor.getColumnIndex("v_color")));
+                model.setMile(cursor.getString(cursor.getColumnIndex("v_mileage")));
+                modelllist.add(model);
+            }while(cursor.moveToNext());
+        }
+        return modelllist;
+    }
+    public List<BrandModel> getvehiclefilter(String datafilter){
+        BrandModel model = null;
+        List<BrandModel> modelllist = new ArrayList<>();
+        String query ="SELECT v_brand , v_model, v_type, v_productionyear, v_price, v_color, v_mileage FROM vehicle WHERE v_brand LIKE '%"+datafilter+ "%' OR v_type LIKE '%"+datafilter+"%' OR v_price LIKE '%"+datafilter+"%'";
+        Cursor cursor = dbw.rawQuery(query,null);
+        if(cursor.moveToFirst()){
+            do {
+                model = new BrandModel();
+                model.setBrand(cursor.getString(cursor.getColumnIndex("v_brand")));
+                model.setModel(cursor.getString(cursor.getColumnIndex("v_model")));
+                model.setType(cursor.getString(cursor.getColumnIndex("v_type")));
+                model.setProductionyear(cursor.getString(cursor.getColumnIndex("v_productionyear")));
+                model.setPrice(cursor.getString(cursor.getColumnIndex("v_price")));
+                model.setColor(cursor.getString(cursor.getColumnIndex("v_color")));
+                model.setMile(cursor.getString(cursor.getColumnIndex("v_mileage")));
+                modelllist.add(model);
+            }while(cursor.moveToNext());
+        }
+        return modelllist;
     }
 
 

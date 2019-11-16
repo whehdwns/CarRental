@@ -10,22 +10,33 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="10dp"
         android:orientation="vertical"
         android:text="Choose Vehicle Brand"
         android:textSize="35dp" />
 
-    <EditText
+    <com.mancj.materialsearchbar.MaterialSearchBar
+        android:id="@+id/search_bar"
+        app:mt_speechMode="false"
+        app:mt_hint="Search"
+        android:layout_below="@+id/choosebrand"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+   <!-- <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="ENTER BRNAD"
         android:id="@+id/editbrand"
-        android:layout_below="@+id/choosebrand"/>
+        android:layout_below="@+id/choosebrand"/>-->
+
     <ListView
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
         android:id="@+id/brandlist"
-        android:layout_below="@+id/editbrand" />
+        android:layout_marginTop="20dp"
+        android:layout_below="@+id/search_bar"
+        android:divider="#d1d1d1"/>
 
 
 
