@@ -35,7 +35,10 @@ public class existinguseractivity extends AppCompatActivity {
                 String name = editname.getText().toString();
              //  dbHelper.SearchUser(name);
                 if(dbHelper.SearchUser(name)){
-                    startActivity(new Intent(existinguseractivity.this, SubMenu.class));
+                    Intent i = new Intent(existinguseractivity.this, SubMenu.class);
+                    i.putExtra("name", name);
+                    startActivity(i);
+                    //startActivity(new Intent(existinguseractivity.this, SubMenu.class));
                 }else{
                     Toast.makeText(getApplicationContext(),"WRONG Name, TRY AGAIN", Toast.LENGTH_SHORT).show();
                 }

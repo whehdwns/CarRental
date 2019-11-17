@@ -11,13 +11,12 @@ import android.widget.Toast;
 import com.example.corn.carrental.database.FeedReaderDbHelper;
 
 public class edit_update extends AppCompatActivity implements  View.OnClickListener{
-    Button pickupdate, returndate;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_edit_update);
-        pickupdate.findViewById(R.id.update_pickup).setOnClickListener(this);
-        returndate.findViewById(R.id.update_return).setOnClickListener(this);
+        findViewById(R.id.update_pickup).setOnClickListener(this);
+        findViewById(R.id.update_return).setOnClickListener(this);
     }
 
     @Override

@@ -4,9 +4,10 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.TextView;
 
 public class SubMenu extends AppCompatActivity implements View.OnClickListener{
-
+    TextView text;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -15,6 +16,10 @@ public class SubMenu extends AppCompatActivity implements View.OnClickListener{
         findViewById(R.id.Search).setOnClickListener(this);
         findViewById(R.id.editreserve).setOnClickListener(this);
         findViewById(R.id.billing).setOnClickListener(this);
+        text = (TextView)findViewById(R.id.welcomeuser);
+        Intent intent = getIntent();
+        String str = intent.getStringExtra("name");
+        text.setText(str);
     }
 
     @Override
