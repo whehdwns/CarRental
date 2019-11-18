@@ -108,6 +108,9 @@ public class FeedReaderDbHelper extends SQLiteAssetHelper {
                         "FROM customer, vehicle, rental, billing, reservation " +
                         "WHERE b_customerid = c_id AND c_id= res_customerid AND res_rentalid = rt_id AND rt_vehicleid = v_id AND c_name ='" +name + "'";
         Cursor cursor = dbw.rawQuery(query, null);
+        cursor.moveToFirst();
+       // int pay  = cursor.getInt(0);
+       // return  pay;
         return  cursor;
     }
 

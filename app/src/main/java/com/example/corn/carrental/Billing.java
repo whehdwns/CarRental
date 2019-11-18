@@ -37,8 +37,10 @@ public class Billing extends AppCompatActivity {
         display.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String name = editname.getText().toString();
-                bill.setText("Total Price is "+ "$ "+  dbHelper.pay(name));
+                String name = editname.getText().toString().trim();
+                Cursor cursor = dbHelper.pay(name);
+                String price = cursor.getString(cursor.getColumnIndex("price"));
+                bill.setText("Total Price is "+ "$ "+  price);
                 //ERROR
                     //dbHelper.pay(name) shows android.database.sqlite.SQLiteCursor@5bb098b
             }
@@ -65,7 +67,7 @@ public class Billing extends AppCompatActivity {
                     buffer.append("Rental Date: "+cursor.getString(5)+ "\n");
                     buffer.append("Return Date: "+cursor.getString(6)+ "\n");
                     buffer.append("Rent Day: "+cursor.getString(7)+ "\n");
-                    buffer.append("Total Price: "+cursor.getString(8)+ "\n");
+                    buffer.append("Total Price: $"+cursor.getString(8)+ "\n");
                 }
                 showMessage("Receipt",buffer.toString());
             }
