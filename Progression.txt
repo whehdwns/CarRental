@@ -26,4 +26,7 @@ Should be finish by December
      Need to fix the error for printing total price
      Still need to figure out how to pass user data to every activity.
      Need to figureout how to connect vehicle and reservation
+     
+11/18/2019
+    Fixed the Error for printing total price
     
