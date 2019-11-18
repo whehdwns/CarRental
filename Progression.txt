@@ -13,9 +13,17 @@ Should be finish by December
         Update return date
                Database return date
 11/16/2019
-  Added Search Vehicle - Vehicle List
+    Added Search Vehicle - Vehicle List
         shows brand, model, type, production year, price, color, mileage for each vehicle
-  Added Search Bar
+    Added Search Bar
          search vehicle by model, type
-  it should keep the data from vehicle and move the data to reservation activity
+    it should keep the data from vehicle and move the data to reservation activity
+
+11/17/2019
+    Added Billing
+        User is able to enter their name, and it shows receipt and total price
+        After they finish payment, it returns to start menu
+     Need to fix the error for printing total price
+     Still need to figure out how to pass user data to every activity.
+     Need to figureout how to connect vehicle and reservation
     
