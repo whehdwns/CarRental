@@ -16,6 +16,7 @@ public class existinguseractivity extends AppCompatActivity {
     Button search;
     //TextView editwelcome;
     FeedReaderDbHelper dbHelper;
+    public static String names = "name";
     //String name;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,11 +33,11 @@ public class existinguseractivity extends AppCompatActivity {
         search.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String name = editname.getText().toString();
+             String name = editname.getText().toString();
              //  dbHelper.SearchUser(name);
                 if(dbHelper.SearchUser(name)){
                     Intent i = new Intent(existinguseractivity.this, SubMenu.class);
-                    i.putExtra("name", name);
+                    i.putExtra(names, name);
                     startActivity(i);
                     //startActivity(new Intent(existinguseractivity.this, SubMenu.class));
                 }else{

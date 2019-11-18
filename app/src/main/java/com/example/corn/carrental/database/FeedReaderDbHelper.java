@@ -103,6 +103,23 @@ public class FeedReaderDbHelper extends SQLiteAssetHelper {
         }
         return modelllist;
     }
+    public Cursor pay(String name){
+        String query = " SELECT (v_price *(julianday(rt_returndate) - julianday(rt_rentaldate))*(1-b_discount)) AS price " +
+                        "FROM customer, vehicle, rental, billing, reservation " +
+                        "WHERE b_customerid = c_id AND c_id= res_customerid AND res_rentalid = rt_id AND rt_vehicleid = v_id AND c_name ='" +name + "'";
+        Cursor cursor = dbw.rawQuery(query, null);
+        return  cursor;
+    }
+
+    public Cursor receipt(String name){
+        String query = " SELECT c_name, v_brand, v_model, v_price AS vehicle_rent_price , (b_discount) AS discount, rt_rentaldate, rt_returndate, " +
+                        "(julianday(rt_returndate) - julianday(rt_rentaldate)) AS rentalday, " +
+                        "(v_price *(julianday(rt_returndate) - julianday(rt_rentaldate))*(1-b_discount)) AS price " +
+                        "FROM customer, vehicle, rental, billing, reservation " +
+                        "WHERE b_customerid = c_id AND c_id= res_customerid AND res_rentalid = rt_id AND rt_vehicleid = v_id AND c_name ='" +name + "'";
+        Cursor cursor = dbw.rawQuery(query, null);
+        return  cursor;
+    }
 
 
 }
