@@ -29,4 +29,7 @@ Should be finish by December
      
 11/18/2019
     Fixed the Error for printing total price
+    Added DMV Information/ Added d_comment in DMV in Database
+    Kind of figure out how to pass user name to multiple activity
+    Still Need to figure out how to connect vehicle and reservation
     
