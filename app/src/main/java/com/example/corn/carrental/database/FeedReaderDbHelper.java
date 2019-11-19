@@ -124,5 +124,26 @@ public class FeedReaderDbHelper extends SQLiteAssetHelper {
         return  cursor;
     }
 
+    public Cursor insertdmv (String name, String income, String ticket, String accident, String trafficviolation, String vehiclereg, String comment){
+        String query = "INSERT INTO DMV ( d_customerid, d_income, d_tickets, d_accident, d_trafficviolation, d_vehiclereg, d_comment) VALUES ((SELECT c_id FROM customer WHERE c_name='" +name + "'), + '"+income +"','"+ticket+"', '"+accident+"','"+trafficviolation+"', '"+vehiclereg+ "','"+comment+"')";
+        Cursor cursor = dbw.rawQuery(query, null);
+        return cursor;
+   }
+
+    public String[] insurance_Spinner(){
+        String query  = "SELECT DISTINCT in_name FROM Insurance";
+        Cursor cursor =dbw.rawQuery(query, null);
+        ArrayList<String> spinnerContent = new ArrayList<String>();
+        if(cursor.moveToFirst()){
+            do{
+                String word = cursor.getString(cursor.getColumnIndexOrThrow("in_name"));
+                spinnerContent.add(word);
+            }while(cursor.moveToNext());
+        }
+        String[] allSpinner = new String[spinnerContent.size()];
+        allSpinner = spinnerContent.toArray(allSpinner);
+        return allSpinner;
+    }
+
 
 }

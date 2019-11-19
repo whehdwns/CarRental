@@ -19,6 +19,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void onClick(View view) {
         if(view.getId()==R.id.newuser){
             startActivity(new Intent(MainActivity.this, newuseractivity.class));
+            //startActivity(new Intent(MainActivity.this,  newDMV.class));
         }else if(view.getId()==R.id.existinguser){
             startActivity(new Intent(MainActivity.this, existinguseractivity.class));
         }

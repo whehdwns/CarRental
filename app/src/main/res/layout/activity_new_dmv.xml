@@ -5,17 +5,96 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".newDMV">
-
     <TextView
         android:id="@+id/welcome"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="10dp"
         android:orientation="vertical"
         android:text="DMV Information"
         android:textSize="40dp" />
+   <!-- <Spinner
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/insurance"
+        android:layout_below="@+id/welcome" />-->
+    <!--<EditText
+        android:id="@+id/insurance"
+        android:layout_marginTop="15dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Insurance"
+        android:layout_below="@+id/welcome"
+        android:singleLine="true" />-->
+    <!--<EditText
+        android:id="@+id/names"
+        android:layout_marginTop="15dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Name"
+        android:layout_below="@+id/welcome"
+        android:singleLine="true" />-->
+    <EditText
+        android:id="@+id/incomes"
+        android:layout_marginTop="15dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="income"
+        android:layout_below="@+id/welcome"
+        android:singleLine="true" />
+    <EditText
+        android:id="@+id/tickets"
+        android:layout_marginTop="15dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="# of tickets"
+        android:layout_below="@+id/incomes"
+        android:singleLine="true" />
+    <EditText
+        android:id="@+id/accidents"
+        android:layout_marginTop="15dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="# of Accident"
+        android:layout_below="@+id/tickets"
+        android:singleLine="true" />
+    <EditText
+        android:id="@+id/trafficviolations"
+        android:layout_marginTop="15dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="# of Traffic Violation"
+        android:layout_below="@+id/accidents"
+        android:singleLine="true" />
+    <EditText
+        android:id="@+id/vehicleregist"
+        android:layout_marginTop="15dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Vehicle Registeration"
+        android:layout_below="@+id/trafficviolations"
+        android:singleLine="true" />
+    <EditText
+        android:id="@+id/dmvcomment"
+        android:layout_marginTop="15dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Comment"
+        android:inputType="textMultiLine"
+        android:layout_below="@+id/vehicleregist"/>
+    <!-- android:lines="2"
+  android:maxLines="10"-->
 
+    <Button
+        android:id="@+id/insert"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="INSERT"
+        android:layout_below="@id/dmvcomment"
+        android:gravity="center"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="150dp"/>
 
 
 </RelativeLayout>

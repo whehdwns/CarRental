@@ -15,6 +15,7 @@ public class newuseractivity extends AppCompatActivity {
     Button insert;
     FeedReaderDbHelper dbHelper;
     String name, phonenumber, address, state, birthdate, rentalid;
+    public static String names = "name";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,6 +39,7 @@ public class newuseractivity extends AppCompatActivity {
             public void onClick(View view) {
                 if (dbHelper.SearchUser(name)) {
                     Toast.makeText(getApplicationContext(), "already exist", Toast.LENGTH_SHORT).show();
+                    startActivity(new Intent(newuseractivity.this,MainActivity.class));
                 } else {
                     name = editname.getText().toString();
                     phonenumber = editphonenumber.getText().toString();
@@ -48,7 +50,10 @@ public class newuseractivity extends AppCompatActivity {
                     dbHelper.insertuser(name, phonenumber, address, state, birthdate, rentalid);
                     Toast.makeText(getApplicationContext(), "User Added", Toast.LENGTH_SHORT).show();
                     //startActivity(new Intent(newuseractivity.this, newDMV.class));
-                    startActivity(new Intent(newuseractivity.this, SubMenu.class));
+                //    startActivity(new Intent(newuseractivity.this, SubMenu.class));
+                    Intent i = new Intent(newuseractivity.this, newDMV.class);
+                    i.putExtra(names, name);
+                    startActivity(i);
                 }
             }
         });

@@ -55,7 +55,7 @@
         android:layout_marginTop="15dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Birth date"
+        android:hint="Birth date: YYYY-MM-DD"
         android:layout_below="@+id/state"
         android:singleLine="true" />
 
