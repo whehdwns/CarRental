@@ -32,4 +32,10 @@ Should be finish by December
     Added DMV Information/ Added d_comment in DMV in Database
     Kind of figure out how to pass user name to multiple activity
     Still Need to figure out how to connect vehicle and reservation
+ 
+11/21/2019
+    Changed Edit Reservation
+        figure out how to pass user input data from acitvitiy of activity
+    Tried to create listview for reservation for location
+            Error in Cursor Initialized
     
