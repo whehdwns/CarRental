@@ -6,6 +6,7 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
 import com.example.corn.carrental.adapter.BrandModel;
+import com.example.corn.carrental.adapter.locationModel;
 import com.readystatesoftware.sqliteasset.SQLiteAssetHelper;
 
 import java.util.ArrayList;
@@ -83,6 +84,8 @@ public class FeedReaderDbHelper extends SQLiteAssetHelper {
         }
         return modelllist;
     }
+
+
     public List<BrandModel> getvehiclefilter(String datafilter){
         BrandModel model = null;
         List<BrandModel> modelllist = new ArrayList<>();
@@ -144,6 +147,23 @@ public class FeedReaderDbHelper extends SQLiteAssetHelper {
         allSpinner = spinnerContent.toArray(allSpinner);
         return allSpinner;
     }
-
+    //Couldn't read row 0, col -1 from CursorWindow.  Make sure the Cursor is initialized correctly before accessing data from it.
+    public List<locationModel> getlocationlist() {
+        locationModel location= null;
+        List<locationModel> locationlist = new ArrayList<>();
+        String query = "SELECT l_address, l_state, l_carsavail, l_phonenumber FROM location";
+        Cursor cursor = dbw.rawQuery(query, null);
+        if (cursor.moveToFirst()) {
+            do {
+                location = new locationModel();
+                location.setAddress(cursor.getString(cursor.getColumnIndex("l_address")));
+                location.setState(cursor.getString(cursor.getColumnIndex("l_state")));
+                location.setCarsavail(cursor.getInt(cursor.getColumnIndex("l_carsavail")));
+                location.setPhonenumber(cursor.getString(cursor.getColumnIndex("l_phonenumber ")));
+                locationlist.add(location);
+            }while (cursor.moveToNext());
+        }
+        return locationlist;
+    }
 
 }

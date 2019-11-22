@@ -15,24 +15,48 @@
         android:text="Update Reservation"
         android:textSize="40dp" />
 
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/update"
+        android:id="@+id/editpickup"
+        android:hint="Enter your Pick UP Date"/>
+
     <Button
         android:id="@+id/update_pickup"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="UPDATE Pick up date"
-        android:layout_below="@id/update"
+        android:layout_below="@id/editpickup"
         android:layout_centerHorizontal="true"
         android:gravity="center"
         android:layout_marginTop="10dp"
         android:layout_marginLeft="150dp"/>
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/update_pickup"
+        android:id="@+id/editreturn"
+        android:hint="Enter your Return Date"/>
+
     <Button
         android:id="@+id/update_return"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="UPDATE Return date"
-        android:layout_below="@id/update_pickup"
+        android:layout_below="@id/editreturn"
         android:gravity="center"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="10dp"
         android:layout_marginLeft="150dp"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/BackTOMenu"
+        android:text="Back To MENU"
+        android:layout_below="@id/update_return"
+        android:layout_marginTop="50dp"
+        android:layout_centerHorizontal="true"/>
+
 </RelativeLayout>

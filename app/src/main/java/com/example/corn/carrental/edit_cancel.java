@@ -14,10 +14,13 @@ public class edit_cancel extends AppCompatActivity {
     EditText editname;
     Button delete;
     FeedReaderDbHelper dbHelper;
+    String name;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_edit_cancel);
+        Intent intent = getIntent();
+        name = intent.getStringExtra("name");
         editname = (EditText)findViewById(R.id.name);
         dbHelper = new FeedReaderDbHelper(this);
         delete = (Button) findViewById(R.id.delete);
@@ -28,9 +31,8 @@ public class edit_cancel extends AppCompatActivity {
         delete.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view) {
-               String name = editname.getText().toString();
                 dbHelper.deltereservation(name);
-                Toast.makeText(getApplicationContext(), "DELETED", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(), "Successfully Canceled the Reservation", Toast.LENGTH_SHORT).show();
                 startActivity(new Intent(edit_cancel.this, SubMenu.class));
             }
         });

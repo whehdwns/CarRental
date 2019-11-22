@@ -48,7 +48,6 @@ public class searchvehicle extends AppCompatActivity {
 
             @Override
             public void onButtonClicked(int buttonCode) {
-
             }
         });
         adapter = new BrandAdapter(this, model);
@@ -57,6 +56,7 @@ public class searchvehicle extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 Intent intent =new Intent(searchvehicle.this, Reservation.class);
+
                 startActivity(intent);
             }
         });

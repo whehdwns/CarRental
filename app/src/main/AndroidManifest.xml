@@ -22,11 +22,9 @@
         <activity android:name=".Reservation" />
         <activity android:name=".searchvehicle" />
         <activity android:name=".editreservation" />
-        <activity android:name=".Billing" />
         <activity android:name=".edit_cancel" />
         <activity android:name=".edit_update" />
-        <activity android:name=".pickupdate" />
-        <activity android:name=".returndate"></activity>
+        <activity android:name=".Billing" />
     </application>
 
 </manifest>

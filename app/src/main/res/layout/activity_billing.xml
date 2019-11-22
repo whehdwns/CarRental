@@ -10,31 +10,16 @@
         android:layout_height="wrap_content"
         android:text="Biling"
         android:id="@+id/biling"
+        android:layout_marginBottom="30dp"
         android:gravity="center"
         android:textSize="20dp"/>
 
-    <EditText
-        android:id="@+id/name"
-        android:layout_marginTop="20dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Name"
-        android:layout_below="@+id/biling"
-        android:singleLine="true" />
-    <Button
-        android:id="@+id/searchButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentRight="true"
-        android:layout_below="@id/name"
-        android:layout_marginBottom="30dp"
-        android:text="Search" />
     <Button
         android:id="@+id/receipt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
-        android:layout_below="@id/name"
+        android:layout_below="@id/biling"
         android:layout_marginBottom="30dp"
         android:text="Receipt" />
 

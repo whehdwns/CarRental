@@ -15,43 +15,33 @@ import com.example.corn.carrental.database.FeedReaderDbHelper;
 
 public class Billing extends AppCompatActivity {
     TextView bill;
-    Button display, pay, receipt;
-    EditText editname;
+    Button  pay, receipt;
     FeedReaderDbHelper dbHelper;
+    String name;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_billing);
-        editname  = (EditText)findViewById(R.id.name);
-        display= (Button)findViewById(R.id.searchButton);
+        Intent intent = getIntent();
+        name = intent.getStringExtra("name");
         receipt= (Button)findViewById(R.id.receipt);
         pay= (Button)findViewById(R.id.pay);
         dbHelper=new FeedReaderDbHelper(this);
         bill = (TextView)findViewById(R.id.bill);
-        displaybill();
+        Cursor cursor = dbHelper.pay(name);
+        String price = cursor.getString(cursor.getColumnIndex("price"));
+        bill.setText("Total Price is "+ "$ "+  price);
         showreceipt();
         finishpay();
 
-    }
-    private void displaybill() {
-        display.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                String name = editname.getText().toString().trim();
-                Cursor cursor = dbHelper.pay(name);
-                String price = cursor.getString(cursor.getColumnIndex("price"));
-                bill.setText("Total Price is "+ "$ "+  price);
-                //ERROR
-                    //dbHelper.pay(name) shows android.database.sqlite.SQLiteCursor@5bb098b
-            }
-        });
     }
 
     private void showreceipt() {
         receipt.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String name = editname.getText().toString();
+                //String name = editname.getText().toString();
                 Cursor cursor = dbHelper.receipt(name);
                 if(cursor.getCount()==0){
                     showMessage("Error","Nothing found");

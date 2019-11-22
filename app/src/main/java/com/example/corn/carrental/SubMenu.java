@@ -10,6 +10,8 @@ import android.widget.TextView;
 public class SubMenu extends AppCompatActivity {
     TextView text;
     Button reserve, search, editreserve, billing;
+    public static String named = "name";
+    String name;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -20,13 +22,15 @@ public class SubMenu extends AppCompatActivity {
         billing = (Button)findViewById(R.id.billing);
         text = (TextView)findViewById(R.id.welcomeuser);
         Intent intent = getIntent();
-        String name = intent.getStringExtra("name");
+        name = intent.getStringExtra("name");
         text.setText(name);
-
         reserve.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(SubMenu.this, Reservation.class));
+                //startActivity(new Intent(SubMenu.this, Reservation.class));
+                Intent i = new Intent(SubMenu.this, Reservation.class);
+                i.putExtra(named, name);
+                startActivity(i);
             }
         });
         search.setOnClickListener(new View.OnClickListener() {
@@ -38,16 +42,19 @@ public class SubMenu extends AppCompatActivity {
         editreserve.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(SubMenu.this, editreservation.class));
-                //Intent i = new Intent(SubMenu.this, editreservation.class);
-                //i.putExtra("name", name);
-                //startActivity(i);
+               // startActivity(new Intent(SubMenu.this, editreservation.class));
+                Intent i = new Intent(SubMenu.this, editreservation.class);
+                i.putExtra(named, name);
+                startActivity(i);
             }
         });
         billing.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(SubMenu.this, Billing.class));
+                //startActivity(new Intent(SubMenu.this, Billing.class));
+                Intent i = new Intent(SubMenu.this, Billing.class);
+                i.putExtra(named, name);
+                startActivity(i);
             }
         });
 

@@ -7,11 +7,23 @@
     tools:context=".Reservation">
 
     <TextView
+        android:id="@+id/chooselocation"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="RESERAVTION"
         android:gravity="center"
-        android:textSize="20dp"/>
+        android:layout_marginTop="10dp"
+        android:orientation="vertical"
+        android:text="Choose Rental Location"
+        android:textSize="35dp" />
+
+    <ListView
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:id="@+id/locationlist"
+        android:layout_marginTop="30dp"
+        android:layout_below="@+id/chooselocation"
+        android:divider="#d1d1d1"/>
+
 
 
 
