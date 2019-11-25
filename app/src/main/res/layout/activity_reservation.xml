@@ -16,12 +16,20 @@
         android:text="Choose Rental Location"
         android:textSize="35dp" />
 
+    <com.mancj.materialsearchbar.MaterialSearchBar
+        android:id="@+id/search_bar"
+        app:mt_speechMode="false"
+        app:mt_hint="Search"
+        android:layout_below="@+id/chooselocation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
     <ListView
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
         android:id="@+id/locationlist"
-        android:layout_marginTop="30dp"
-        android:layout_below="@+id/chooselocation"
+        android:layout_marginTop="10dp"
+        android:layout_below="@+id/search_bar"
         android:divider="#d1d1d1"/>
 
 

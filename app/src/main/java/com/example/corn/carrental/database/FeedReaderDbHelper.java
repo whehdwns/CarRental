@@ -158,12 +158,28 @@ public class FeedReaderDbHelper extends SQLiteAssetHelper {
                 location = new locationModel();
                 location.setAddress(cursor.getString(cursor.getColumnIndex("l_address")));
                 location.setState(cursor.getString(cursor.getColumnIndex("l_state")));
-                location.setCarsavail(cursor.getInt(cursor.getColumnIndex("l_carsavail")));
-                location.setPhonenumber(cursor.getString(cursor.getColumnIndex("l_phonenumber ")));
+                location.setCarsavail(cursor.getString(cursor.getColumnIndex("l_carsavail")));
+                location.setPhonenumber(cursor.getString(cursor.getColumnIndex("l_phonenumber")));
                 locationlist.add(location);
             }while (cursor.moveToNext());
         }
         return locationlist;
     }
-
+    public List<locationModel> getlocationfilter(String datafilter){
+        locationModel location= null;
+        List<locationModel> locationlist = new ArrayList<>();
+        String query ="SELECT l_address, l_state, l_carsavail, l_phonenumber FROM location WHERE l_state LIKE '%"+datafilter+ "%'";
+        Cursor cursor = dbw.rawQuery(query,null);
+        if(cursor.moveToFirst()){
+            do {
+                location = new locationModel();
+                location.setAddress(cursor.getString(cursor.getColumnIndex("l_address")));
+                location.setState(cursor.getString(cursor.getColumnIndex("l_state")));
+                location.setCarsavail(cursor.getString(cursor.getColumnIndex("l_carsavail")));
+                location.setPhonenumber(cursor.getString(cursor.getColumnIndex("l_phonenumber")));
+                locationlist.add(location);
+            }while(cursor.moveToNext());
+        }
+        return locationlist;
+    }
 }

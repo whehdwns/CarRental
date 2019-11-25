@@ -1,10 +1,13 @@
 package com.example.corn.carrental.adapter;
 
 public class locationModel {
-    int id, carsavail;
-    String address, state, phonenumber;
+    int id;
+    String address;
+    String state;
+    String carsavail;
+    String phonenumber;
 
-    public locationModel(int id, String address, String state, String phonenumber, int carsavail) {
+    public locationModel(int id, String address, String state, String carsavail, String phonenumber) {
         this.id = id;
         this.address = address;
         this.state = state;
@@ -38,6 +41,15 @@ public class locationModel {
         this.state = state;
     }
 
+    public String getCarsavail() {
+        return carsavail;
+    }
+
+    public void setCarsavail(String carsavail) {
+        this.carsavail = carsavail;
+    }
+
+
     public String getPhonenumber() {
         return phonenumber;
     }
@@ -46,11 +58,5 @@ public class locationModel {
         this.phonenumber = phonenumber;
     }
 
-    public int getCarsavail() {
-        return carsavail;
-    }
 
-    public void setCarsavail(int carsavail) {
-        this.carsavail = carsavail;
-    }
 }

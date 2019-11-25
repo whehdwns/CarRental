@@ -40,6 +40,9 @@ public class searchvehicle extends AppCompatActivity {
         materialSearchBar.setOnSearchActionListener(new MaterialSearchBar.OnSearchActionListener() {
             @Override
             public void onSearchStateChanged(boolean enabled) {
+                if(!enabled){
+                    brandlist.setAdapter(adapter);
+                }
             }
             @Override
             public void onSearchConfirmed(CharSequence text) {
@@ -56,7 +59,6 @@ public class searchvehicle extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 Intent intent =new Intent(searchvehicle.this, Reservation.class);
-
                 startActivity(intent);
             }
         });
