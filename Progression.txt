@@ -38,4 +38,6 @@ Should be finish by December
         figure out how to pass user input data from acitvitiy of activity
     Tried to create listview for reservation for location
             Error in Cursor Initialized
+11/25/2019
+     Fixed Location ListView in Reservation
     
