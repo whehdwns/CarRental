@@ -40,4 +40,5 @@ Should be finish by December
             Error in Cursor Initialized
 11/25/2019
      Fixed Location ListView in Reservation
+     Tried to create insert data (pickup date, rental day) for reservation
     
