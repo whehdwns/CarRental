@@ -1,7 +1,10 @@
 package com.example.corn.carrental;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
 
 import com.example.corn.carrental.adapter.BrandAdapter;
@@ -46,6 +49,13 @@ public class Reservation extends AppCompatActivity {
         });
         adapter= new locationAdapter(this, location);
         locationlist.setAdapter(adapter);
+        locationlist.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                Intent intent =new Intent(Reservation.this, rental_reserve_date.class);
+                startActivity(intent);
+            }
+        });
     }
     private void startSearch(String s){
         adapter = new locationAdapter(this, dbHelper.getlocationfilter(s));

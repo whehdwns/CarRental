@@ -12,6 +12,7 @@
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
@@ -25,6 +26,7 @@
         <activity android:name=".edit_cancel" />
         <activity android:name=".edit_update" />
         <activity android:name=".Billing" />
+        <activity android:name=".rental_reserve_date"></activity>
     </application>
 
 </manifest>
