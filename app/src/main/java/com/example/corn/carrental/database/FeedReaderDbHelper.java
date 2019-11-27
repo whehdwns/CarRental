@@ -66,12 +66,12 @@ public class FeedReaderDbHelper extends SQLiteAssetHelper {
     public List<BrandModel> getvehiclelist(){
         BrandModel model = null;
         List<BrandModel> modelllist = new ArrayList<>();
-        String query ="SELECT v_brand , v_model, v_type, v_productionyear, v_price, v_color, v_mileage FROM vehicle";
+        String query ="SELECT v_id, v_brand , v_model, v_type, v_productionyear, v_price, v_color, v_mileage FROM vehicle";
         Cursor cursor = dbw.rawQuery(query,null);
         if(cursor.moveToFirst()){
             do {
                 model = new BrandModel();
-                //model.setId(cursor.getInt(cursor.getColumnIndex("v_id")));
+                model.setId(cursor.getInt(cursor.getColumnIndex("v_id")));
                 model.setBrand(cursor.getString(cursor.getColumnIndex("v_brand")));
                 model.setModel(cursor.getString(cursor.getColumnIndex("v_model")));
                 model.setType(cursor.getString(cursor.getColumnIndex("v_type")));
@@ -89,11 +89,12 @@ public class FeedReaderDbHelper extends SQLiteAssetHelper {
     public List<BrandModel> getvehiclefilter(String datafilter){
         BrandModel model = null;
         List<BrandModel> modelllist = new ArrayList<>();
-        String query ="SELECT v_brand , v_model, v_type, v_productionyear, v_price, v_color, v_mileage FROM vehicle WHERE v_brand LIKE '%"+datafilter+ "%' OR v_type LIKE '%"+datafilter+"%' OR v_price LIKE '%"+datafilter+"%'";
+        String query ="SELECT v_id, v_brand , v_model, v_type, v_productionyear, v_price, v_color, v_mileage FROM vehicle WHERE v_brand LIKE '%"+datafilter+ "%' OR v_type LIKE '%"+datafilter+"%' OR v_price LIKE '%"+datafilter+"%'";
         Cursor cursor = dbw.rawQuery(query,null);
         if(cursor.moveToFirst()){
             do {
                 model = new BrandModel();
+                model.setId(cursor.getInt(cursor.getColumnIndex("v_id")));
                 model.setBrand(cursor.getString(cursor.getColumnIndex("v_brand")));
                 model.setModel(cursor.getString(cursor.getColumnIndex("v_model")));
                 model.setType(cursor.getString(cursor.getColumnIndex("v_type")));
@@ -151,11 +152,12 @@ public class FeedReaderDbHelper extends SQLiteAssetHelper {
     public List<locationModel> getlocationlist() {
         locationModel location= null;
         List<locationModel> locationlist = new ArrayList<>();
-        String query = "SELECT l_address, l_state, l_carsavail, l_phonenumber FROM location";
+        String query = "SELECT l_id, l_address, l_state, l_carsavail, l_phonenumber FROM location";
         Cursor cursor = dbw.rawQuery(query, null);
         if (cursor.moveToFirst()) {
             do {
                 location = new locationModel();
+                location.setId(cursor.getInt(cursor.getColumnIndex("l_id")));
                 location.setAddress(cursor.getString(cursor.getColumnIndex("l_address")));
                 location.setState(cursor.getString(cursor.getColumnIndex("l_state")));
                 location.setCarsavail(cursor.getString(cursor.getColumnIndex("l_carsavail")));
@@ -168,11 +170,12 @@ public class FeedReaderDbHelper extends SQLiteAssetHelper {
     public List<locationModel> getlocationfilter(String datafilter){
         locationModel location= null;
         List<locationModel> locationlist = new ArrayList<>();
-        String query ="SELECT l_address, l_state, l_carsavail, l_phonenumber FROM location WHERE l_state LIKE '%"+datafilter+ "%'";
+        String query ="SELECT l_id, l_address, l_state, l_carsavail, l_phonenumber FROM location WHERE l_state LIKE '%"+datafilter+ "%'";
         Cursor cursor = dbw.rawQuery(query,null);
         if(cursor.moveToFirst()){
             do {
                 location = new locationModel();
+                location.setId(cursor.getInt(cursor.getColumnIndex("l_id")));
                 location.setAddress(cursor.getString(cursor.getColumnIndex("l_address")));
                 location.setState(cursor.getString(cursor.getColumnIndex("l_state")));
                 location.setCarsavail(cursor.getString(cursor.getColumnIndex("l_carsavail")));
@@ -182,4 +185,20 @@ public class FeedReaderDbHelper extends SQLiteAssetHelper {
         }
         return locationlist;
     }
+
+   /* public Cursor insertpickupdata(String name, String pickupdate){
+        String query = "INSERT INTO "
+    }
+
+    public Cursor insertreturndata(String name, String renturnday){
+        String query = "INSERT "
+    }
+    */
+
+    public Cursor rentalinfo(String name){
+        String query ="SELECT c_name, v_brand, v_model, res_pickupdate, rt_returndate, l_address, l_state FROM customer, vehicle, reservation, rental, location WHERE l_id = res_locationid AND res_rentalid = rt_id  AND rt_vehicleid  = v_id AND res_customerid =  c_id AND  c_name ='" +name+"'";
+        Cursor cursor = dbw.rawQuery(query , null);
+        return  cursor;
+    }
+
 }

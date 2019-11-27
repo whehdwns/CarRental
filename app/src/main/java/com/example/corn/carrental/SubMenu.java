@@ -28,7 +28,8 @@ public class SubMenu extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 //startActivity(new Intent(SubMenu.this, Reservation.class));
-                Intent i = new Intent(SubMenu.this, Reservation.class);
+               Intent i = new Intent(SubMenu.this, Reservation.class);
+               // Intent i = new Intent(SubMenu.this, rental_reserve_date.class);
                 i.putExtra(named, name);
                 startActivity(i);
             }

@@ -21,10 +21,14 @@ public class Reservation extends AppCompatActivity {
     private locationAdapter adapter;
     private List<locationModel> location;
     MaterialSearchBar materialSearchBar;
+    String name;
+    public static String named = "name";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_reservation);
+        Intent intent = getIntent();
+        name = intent.getStringExtra("name");
         locationlist = (ListView)findViewById(R.id.locationlist);
         dbHelper=new FeedReaderDbHelper(this);
         location= dbHelper.getlocationlist();
@@ -53,6 +57,7 @@ public class Reservation extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 Intent intent =new Intent(Reservation.this, rental_reserve_date.class);
+                intent.putExtra(named, name);
                 startActivity(intent);
             }
         });
