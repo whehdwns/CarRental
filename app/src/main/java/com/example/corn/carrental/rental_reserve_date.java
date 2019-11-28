@@ -16,13 +16,15 @@ public class rental_reserve_date extends AppCompatActivity {
     EditText editpickup, editreturnday;
     Button  insertpickupbutton, insertreturnbutton, rentalinfo, backtomenu;
     FeedReaderDbHelper dbHelper;
-    String name;
+    String name, locationid, vehicleid;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_rental_reserve_date);
         Intent intent = getIntent();
         name = intent.getStringExtra("name");
+        vehicleid = intent.getStringExtra("v_id");
+        locationid = intent.getStringExtra("l_id");
         editpickup= (EditText)findViewById(R.id.pickup);
         editreturnday = (EditText)findViewById(R.id.returnday);
         insertpickupbutton = (Button)findViewById(R.id.pickupbutton);

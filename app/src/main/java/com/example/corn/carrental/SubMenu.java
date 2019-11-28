@@ -37,7 +37,10 @@ public class SubMenu extends AppCompatActivity {
         search.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(SubMenu.this, searchvehicle.class));
+               // startActivity(new Intent(SubMenu.this, searchvehicle.class));
+                Intent i = new Intent(SubMenu.this, searchvehicle.class);
+                i.putExtra(named, name);
+                startActivity(i);
             }
         });
         editreserve.setOnClickListener(new View.OnClickListener() {

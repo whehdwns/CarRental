@@ -5,7 +5,6 @@ import android.database.Cursor;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -19,6 +18,7 @@ import com.example.corn.carrental.adapter.BrandModel;
 import com.example.corn.carrental.database.FeedReaderDbHelper;
 import com.mancj.materialsearchbar.MaterialSearchBar;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class searchvehicle extends AppCompatActivity {
@@ -26,12 +26,17 @@ public class searchvehicle extends AppCompatActivity {
     ListView brandlist;
     private BrandAdapter adapter;
     private List<BrandModel> model;
+    BrandModel bm;
     FeedReaderDbHelper dbHelper;
     MaterialSearchBar materialSearchBar;
+    public static String named = "name";
+    String name;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_searchvehicle);
+        Intent intent = getIntent();
+        name = intent.getStringExtra("name");
         brandlist = (ListView) findViewById(R.id.brandlist);
         dbHelper=new FeedReaderDbHelper(this);
         model = dbHelper.getvehiclelist();
@@ -58,7 +63,16 @@ public class searchvehicle extends AppCompatActivity {
         brandlist.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+               // Intent intent =new Intent(searchvehicle.this, Reservation.class);
+                //startActivity(intent);
+                /*
+                passing vehicle id to next activity
+                 */
+                bm = (BrandModel) adapter.getItem(i);
+               // Intent intent = new Intent(searchvehicle.this, SubMenu.class);
                 Intent intent =new Intent(searchvehicle.this, Reservation.class);
+                intent.putExtra("v_id", bm.getId());
+                intent.putExtra(named, name);
                 startActivity(intent);
             }
         });
@@ -73,6 +87,5 @@ public class searchvehicle extends AppCompatActivity {
         inflater.inflate(R.menu.vehicle_filter_menu, menu);
         return true;
     }
-
 
 }
