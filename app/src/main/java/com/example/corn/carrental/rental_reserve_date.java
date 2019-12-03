@@ -17,6 +17,7 @@ public class rental_reserve_date extends AppCompatActivity {
     Button  insertpickupbutton, insertreturnbutton, rentalinfo, backtomenu;
     FeedReaderDbHelper dbHelper;
     String name, locationid, vehicleid;
+    public static String named = "name";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -95,7 +96,10 @@ public class rental_reserve_date extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Toast.makeText(getApplicationContext(),"Finished Reservation", Toast.LENGTH_SHORT).show();
-                startActivity(new Intent(rental_reserve_date.this, SubMenu.class));
+                Intent i = new Intent(rental_reserve_date.this, SubMenu.class);
+                i.putExtra(named, name);
+                startActivity(i);
+               // startActivity(new Intent(rental_reserve_date.this, SubMenu.class));
             }
         });
 
