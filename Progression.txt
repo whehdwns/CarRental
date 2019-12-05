@@ -47,4 +47,7 @@ Should be finish by December
 11/27/2019
       Kinda figure out how to pass vehicle id , and location id to next activity (haven't tested yet)
       if this passing data is working, then need to care about detail part and design for UI
+12/4/2019
+      Realized that there is no insert data (pickup date, rental day) for reservation
+      Need to figure out insert those data and connect at the same time with id.
     
