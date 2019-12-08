@@ -50,4 +50,7 @@ Should be finish by December
 12/4/2019
       Realized that there is no insert data (pickup date, rental day) for reservation
       Need to figure out insert those data and connect at the same time with id.
+12/7/2019
+       Fixed some of the error but
+       Insert new user seems not working well because of that, the reservation info and billing isn't working.
     
