@@ -53,4 +53,7 @@ Should be finish by December
 12/7/2019
        Fixed some of the error but
        Insert new user seems not working well because of that, the reservation info and billing isn't working.
+What we need 
+      Need to insert discount
+      Need to figure out insert rental and reservation at the same time
     
