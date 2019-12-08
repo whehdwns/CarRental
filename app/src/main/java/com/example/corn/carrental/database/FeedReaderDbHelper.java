@@ -17,15 +17,15 @@ public class FeedReaderDbHelper extends SQLiteAssetHelper {
     private static final int DATABASE_VERSION= 1;
     Context context;
     SQLiteDatabase dbw = getWritableDatabase();
-    SQLiteDatabase dbr = getWritableDatabase();
+    SQLiteDatabase dbr = getReadableDatabase();
     ContentValues contentValues = new ContentValues();
     public FeedReaderDbHelper(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
         this.context= context;
     }
-
-    public Cursor insertuser (String nametext, String phonetext, String addresstext, String statetext, String birthtext, String rentaltext){
-        String query = "INSERT INTO customer (c_name, c_phonenumber, c_address, c_state, c_rentalid, c_birthdate) VALUES ('"+nametext+"','"+phonetext+"','"+addresstext+"', '"+statetext+"','"+birthtext+"', '"+rentaltext+"')";
+//c_rentalid,, String rentaltext, , '"+rentaltext+"'
+    public Cursor insertuser (String nametext, String phonetext, String addresstext, String statetext, String birthtext){
+        String query = "INSERT INTO customer (c_name, c_phonenumber, c_address, c_state,  c_birthdate) VALUES ('"+nametext+"','"+phonetext+"','"+addresstext+"', '"+statetext+"','"+birthtext+"')";
         Cursor cursor = dbw.rawQuery(query, null);
         //db.execSQL(query);
         return cursor;
@@ -58,7 +58,7 @@ public class FeedReaderDbHelper extends SQLiteAssetHelper {
     }
 
     public Cursor updatereturn (String name, String returndate){
-        String query = "UPDATE rental SET'"+returndate+"' WHERE rt_id IN  (SELECT rt_id FROM rental, customer WHERE rt_id = c_rentalid AND c_name = '" + name+"')";
+        String query = "UPDATE rental SET'"+returndate+"' WHERE rt_id IN  (SELECT rt_id FROM rental, reservation, customer WHERE c_id= res_customerid AND res_rentalid =rt_id AND c_name = '" + name+"')";
         Cursor cursor = dbw.rawQuery(query, null);
         return cursor;
     }
@@ -186,14 +186,19 @@ public class FeedReaderDbHelper extends SQLiteAssetHelper {
         return locationlist;
     }
 
-   /* public Cursor insertpickupdata(String name, String pickupdate){
-        String query = "INSERT INTO "
+   public Cursor insertpickupdata(String name, String pickupdate, int locationid){
+        String query = "INSERT INTO reservation (res_customerid, res_reservedate, res_pickupdate, res_locationid) VALUES ((SELECT c_id FROM customer, reservation WHERE res_customerid= c_id AND c_name ='"+name+"'),(SELECT DATE('NOW')),'" +pickupdate+"','"+locationid+"')";
+        Cursor cursor = dbw.rawQuery(query, null);
+        return cursor;
+    }
+// NOT WORKING RIGHT NOW ----------------------
+    public Cursor insertreturndata(String name, String rentalday, int vehicleid){
+        String query = "INSERT INTO rental(rt_vehicleid, rt_rentaldate, rt_returndate) VALUES ("+vehicleid+", (SELECT DATE('NOW')), (SELECT DATE(res_pickupdate, '+"+rentalday+" days') FROM reservation, rental, customer WHERE c_id=res_customerid AND res_rentalid=rt_id AND c_name='"+name+"'))";
+        Cursor cursor =dbw.rawQuery(query, null);
+        return  cursor;
     }
 
-    public Cursor insertreturndata(String name, String renturnday){
-        String query = "INSERT "
-    }
-    */
+
 
     public Cursor rentalinfo(String name){
         String query ="SELECT c_name, v_brand, v_model, res_pickupdate, rt_returndate, l_address, l_state FROM customer, vehicle, reservation, rental, location WHERE l_id = res_locationid AND res_rentalid = rt_id  AND rt_vehicleid  = v_id AND res_customerid =  c_id AND  c_name ='" +name+"'";
