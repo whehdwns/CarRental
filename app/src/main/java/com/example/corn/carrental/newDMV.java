@@ -69,7 +69,7 @@ public class newDMV extends AppCompatActivity {
                 dbHelper.insertdmv(name, income, ticket,accident, trafficviolation, vehicleregisteration, comment);
                 Toast.makeText(getApplicationContext(), "DMV INFO Added", Toast.LENGTH_SHORT).show();
                // startActivity(new Intent(newDMV.this, SubMenu.class));
-                Intent i = new Intent(newDMV.this, SubMenu.class);
+                Intent i = new Intent(newDMV.this, Insert_billing.class);
                 i.putExtra("rt_id", rentalid);
                 i.putExtra(named, name);
                 startActivity(i);

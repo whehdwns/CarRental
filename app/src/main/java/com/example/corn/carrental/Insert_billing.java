@@ -54,7 +54,7 @@ public class Insert_billing extends AppCompatActivity {
             public void onClick(View view) {
                 cardtype = editcardtype.getText().toString();
                 dbHelper.cardtype(name, cardtype);
-                Intent i = new Intent(Insert_billing.this, Billing.class);
+                Intent i = new Intent(Insert_billing.this, SubMenu.class);
                 i.putExtra(named, name);
                 i.putExtra("rt_id", rentalid);
                 startActivity(i);

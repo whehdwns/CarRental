@@ -18,6 +18,7 @@ public class Billing extends AppCompatActivity {
     Button  pay, receipt;
     FeedReaderDbHelper dbHelper;
     String name;
+    int rentalid;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,6 +26,7 @@ public class Billing extends AppCompatActivity {
         setContentView(R.layout.activity_billing);
         Intent intent = getIntent();
         name = intent.getStringExtra("name");
+        rentalid = intent.getExtras().getInt("rt_id");
         receipt= (Button)findViewById(R.id.receipt);
         pay= (Button)findViewById(R.id.pay);
         dbHelper=new FeedReaderDbHelper(this);

@@ -62,8 +62,8 @@ public class SubMenu extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 //startActivity(new Intent(SubMenu.this, Billing.class));
-                //Intent i = new Intent(SubMenu.this, Billing.class);
-                Intent i = new Intent(SubMenu.this, Insert_billing.class);
+                Intent i = new Intent(SubMenu.this, Billing.class);
+               // Intent i = new Intent(SubMenu.this, Insert_billing.class);
                 i.putExtra("rt_id", rentalid);
                 i.putExtra(named, name);
                 startActivity(i);
