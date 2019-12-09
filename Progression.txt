@@ -56,5 +56,9 @@ Should be finish by December
 12/8/2019
       insert card type 
       Have problem with insert user
+12/9/2019
+       Fixed some error.
+       Almost finished it for basic functionality of Car Rental System
+       Doesn't have UI Design yet. (will do it for free time)
      
     
