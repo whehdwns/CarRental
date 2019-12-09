@@ -26,7 +26,8 @@
         <activity android:name=".edit_cancel" />
         <activity android:name=".edit_update" />
         <activity android:name=".Billing" />
-        <activity android:name=".rental_reserve_date"></activity>
+        <activity android:name=".rental_reserve_date" />
+        <activity android:name=".Insert_billing"></activity>
     </application>
 
 </manifest>

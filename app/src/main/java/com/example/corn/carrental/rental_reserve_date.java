@@ -17,7 +17,7 @@ public class rental_reserve_date extends AppCompatActivity {
     Button  insertpickupbutton, insertreturnbutton, rentalinfo, backtomenu;
     FeedReaderDbHelper dbHelper;
     String name;
-    int locationid, vehicleid;
+    int locationid, vehicleid, rentalid;
     public static String named = "name";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,6 +27,7 @@ public class rental_reserve_date extends AppCompatActivity {
         name = intent.getStringExtra("name");
         vehicleid = intent.getExtras().getInt("v_id");
         locationid = intent.getExtras().getInt("l_id");
+        rentalid = intent.getExtras().getInt("rt_id");
         editpickup= (EditText)findViewById(R.id.pickup);
         editreturnday = (EditText)findViewById(R.id.returnday);
         insertpickupbutton = (Button)findViewById(R.id.pickupbutton);
@@ -45,7 +46,8 @@ public class rental_reserve_date extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 String pickupday = editpickup.getText().toString();
-               dbHelper.insertpickupdata (name, pickupday, locationid);
+               dbHelper.insertpickupdata (name, pickupday, rentalid, locationid);
+                Toast.makeText(getApplicationContext(), "insert pick up", Toast.LENGTH_SHORT).show();
             }
         });
     }
@@ -55,7 +57,8 @@ public class rental_reserve_date extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 String renturnday = editreturnday.getText().toString();
-                dbHelper.insertreturndata(name, renturnday, vehicleid);
+                dbHelper.insertreturndata(rentalid, name, renturnday, vehicleid);
+                Toast.makeText(getApplicationContext(), "insert return ", Toast.LENGTH_SHORT).show();
             }
         });
     }

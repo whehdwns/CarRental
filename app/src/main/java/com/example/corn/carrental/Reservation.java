@@ -24,6 +24,7 @@ public class Reservation extends AppCompatActivity {
     MaterialSearchBar materialSearchBar;
     String name;
     int vehicleid;
+    int rentalid;
     public static String named = "name";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,6 +33,7 @@ public class Reservation extends AppCompatActivity {
         Intent intent = getIntent();
         name = intent.getStringExtra("name");
         vehicleid =intent.getExtras().getInt("v_id");
+        rentalid = intent.getExtras().getInt("rt_id");
         locationlist = (ListView)findViewById(R.id.locationlist);
         dbHelper=new FeedReaderDbHelper(this);
         location= dbHelper.getlocationlist();
@@ -65,6 +67,7 @@ public class Reservation extends AppCompatActivity {
                 lm = (locationModel) adapter.getItem(i);
                 Intent intent =new Intent(Reservation.this, rental_reserve_date.class);
                 intent.putExtra("l_id", lm.getId());
+                intent.putExtra("rt_id", rentalid);
                 intent.putExtra(named, name);
                 intent.putExtra("v_id", vehicleid);
                 startActivity(intent);

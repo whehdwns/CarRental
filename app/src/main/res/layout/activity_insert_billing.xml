@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Insert_billing">
+    <TextView
+        android:id="@+id/billing"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_marginTop="10dp"
+        android:orientation="vertical"
+        android:text="SELECT Payment Type"
+        android:textSize="40dp" />
+   <!-- <Spinner
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/cardtype"
+        android:layout_below="@+id/billing" />_-->
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/cardtype"
+        android:layout_below="@id/billing"
+        android:singleLine="true"
+        android:hint="Enter Your Payment Type"/>
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/cardtype"
+        android:text="Insert"
+        android:id="@+id/insert"
+        android:gravity="center"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="150dp"/>
+
+</RelativeLayout>

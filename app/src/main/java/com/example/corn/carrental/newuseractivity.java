@@ -14,7 +14,8 @@ public class newuseractivity extends AppCompatActivity {
     EditText editname, editphonenumber, editaddress, editstate, editbirthdate, editrentalid;
     Button insert;
     FeedReaderDbHelper dbHelper;
-    String name, phonenumber, address, state, birthdate, rentalid;
+    String name, phonenumber, address, state, birthdate, rental;
+    int rentalid;
     public static String names = "name";
 
     @Override
@@ -26,7 +27,7 @@ public class newuseractivity extends AppCompatActivity {
         editaddress = findViewById(R.id.address);
         editstate = findViewById(R.id.state);
         editbirthdate = findViewById(R.id.birthdate);
-       // editrentalid = findViewById(R.id.rentalid);
+        editrentalid = findViewById(R.id.rentalid);
         insert = (Button) findViewById(R.id.insert);
         dbHelper = new FeedReaderDbHelper(this);
        // CheckEditTextStatus();
@@ -46,18 +47,19 @@ public class newuseractivity extends AppCompatActivity {
                     address = editaddress.getText().toString();
                     state = editstate.getText().toString();
                     birthdate = editbirthdate.getText().toString();
-                   // rentalid = editrentalid.getText().toString();
-                    dbHelper.insertuser(name, phonenumber, address, state, birthdate);//, rentalid);
+                    rental = editrentalid.getText().toString();
+                    rentalid = new Integer(rental).intValue();
+                    dbHelper.insertuser(name, phonenumber, address, state, rentalid, birthdate);
                     Toast.makeText(getApplicationContext(), "User Added", Toast.LENGTH_SHORT).show();
                     //startActivity(new Intent(newuseractivity.this, newDMV.class));
                 //    startActivity(new Intent(newuseractivity.this, SubMenu.class));
                     Intent i = new Intent(newuseractivity.this, newDMV.class);
+                    i.putExtra("rt_id", rentalid);
                     i.putExtra(names, name);
                     startActivity(i);
                 }
             }
         });
-
     }
 
   /*  public void CheckEditTextStatus(){

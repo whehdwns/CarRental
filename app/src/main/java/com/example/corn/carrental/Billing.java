@@ -34,7 +34,6 @@ public class Billing extends AppCompatActivity {
         bill.setText("Total Price is "+ "$ "+  price);
         showreceipt();
         finishpay();
-
     }
 
     private void showreceipt() {

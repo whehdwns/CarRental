@@ -59,21 +59,21 @@
         android:layout_below="@+id/state"
         android:singleLine="true" />
 
-   <!-- <EditText
+    <EditText
         android:id="@+id/rentalid"
         android:layout_marginTop="15dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Rental ID"
         android:layout_below="@+id/birthdate"
-        android:singleLine="true" />-->
+        android:singleLine="true" />
 
     <Button
         android:id="@+id/insert"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="INSERT"
-        android:layout_below="@id/birthdate"
+        android:layout_below="@id/rentalid"
         android:gravity="center"
         android:layout_marginTop="10dp"
         android:layout_marginLeft="150dp"/>

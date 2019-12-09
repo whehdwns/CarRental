@@ -19,12 +19,14 @@ public class newDMV extends AppCompatActivity {
     FeedReaderDbHelper dbHelper;
     String name, income, ticket, accident, trafficviolation, vehicleregisteration, comment;
     public static String named = "name";
+    int rentalid;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_new_dmv);
         Intent intent = getIntent();
         name = intent.getStringExtra("name");
+        rentalid = intent.getExtras().getInt("rt_id");
         //Spinner insurance = (Spinner)findViewById(R.id.insurance);
        // insurance.findViewById(R.id.insurance);
         //insurance = findViewById(R.id.insurance);
@@ -68,6 +70,7 @@ public class newDMV extends AppCompatActivity {
                 Toast.makeText(getApplicationContext(), "DMV INFO Added", Toast.LENGTH_SHORT).show();
                // startActivity(new Intent(newDMV.this, SubMenu.class));
                 Intent i = new Intent(newDMV.this, SubMenu.class);
+                i.putExtra("rt_id", rentalid);
                 i.putExtra(named, name);
                 startActivity(i);
             }
