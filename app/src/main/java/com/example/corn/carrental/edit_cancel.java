@@ -33,7 +33,7 @@ public class edit_cancel extends AppCompatActivity {
             public void onClick(View view) {
                 dbHelper.deltereservation(name);
                 Toast.makeText(getApplicationContext(), "Successfully Canceled the Reservation", Toast.LENGTH_SHORT).show();
-                startActivity(new Intent(edit_cancel.this, SubMenu.class));
+                startActivity(new Intent(edit_cancel.this, MainActivity.class));
             }
         });
     }

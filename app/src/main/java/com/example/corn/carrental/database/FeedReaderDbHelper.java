@@ -55,7 +55,7 @@ public class FeedReaderDbHelper extends SQLiteAssetHelper {
     }
 
     public void deltereservation(String name){
-        String query = "DELETE FROM reservation WHERE res_id (SELECT res_id FROM reservation, customer WHERE res_customerid = c_id AND c_name = '" + name+"')";
+        String query = "DELETE FROM reservation WHERE res_id IN (SELECT res_id FROM reservation, customer WHERE res_customerid = c_id AND c_name = '" + name+"')";
         //Cursor cursor = dbw.rawQuery(query, null);
         dbw.execSQL(query);
         //return cursor;
