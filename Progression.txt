@@ -60,5 +60,8 @@ Should be finish by December
        Fixed some error.
        Almost finished it for basic functionality of Car Rental System
        Doesn't have UI Design yet. (will do it for free time)
+12/10/2019
+      Fixed Delete (Cancel Reservation) error
+      Have problem in detail part (Will not gonna care about the detail part right now due to limited time)
      
     
