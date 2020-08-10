@@ -1,4 +1,4 @@
 # CarRental
 Car Rental App with SQLITE database
 
-![](CarRental_nexus6p-portrait.png = 800x1000)
+<img src="https://github.com/whehdwns/CarRental/CarRental_img.png" width="700" height="800" title="Car Rental App">
