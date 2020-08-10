@@ -1,4 +1,4 @@
 # CarRental
 Car Rental App with SQLITE database
 
-![](CarRental_nexus6p-portrait.png){:height="50%" width="50%"} 
+![](CarRental_nexus6p-portrait.png = 800x1000)
